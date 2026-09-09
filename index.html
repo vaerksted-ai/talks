@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>talks · Værksted AI</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="Public talks and decks from Værksted AI (Maskin)." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&family=Newsreader:ital,wght@1,400&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg:#FAFAF8; --ink:#0B0B0C; --ink-soft:#2A2A2E; --muted:#6B6B70; --line:#E4E1DA;
+    --blue:#2563EB;
+    --font-display:"Schibsted Grotesk",system-ui,sans-serif;
+    --font-serif:"Newsreader",Georgia,serif;
+  }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  html,body { background:var(--bg); color:var(--ink); font-family:var(--font-display); -webkit-font-smoothing:antialiased; }
+  body { padding:64px 24px 96px; }
+  main { max-width:720px; margin:0 auto; }
+  header { padding-bottom:48px; border-bottom:1px solid var(--line); margin-bottom:32px; }
+  h1 { font-weight:800; font-size:44px; letter-spacing:-0.02em; line-height:1.05; }
+  h1 em { font-family:var(--font-serif); font-style:italic; font-weight:400; color:var(--ink-soft); }
+  header p { font-size:17px; color:var(--muted); margin-top:14px; max-width:520px; line-height:1.5; }
+  ul.talks { list-style:none; display:flex; flex-direction:column; gap:8px; }
+  li.talk a {
+    display:grid; grid-template-columns:120px 1fr auto; gap:24px; align-items:baseline;
+    padding:20px 16px; margin:0 -16px; border-radius:8px;
+    color:var(--ink); text-decoration:none; transition:background 120ms ease;
+  }
+  li.talk a:hover { background:#F1EEE7; }
+  li.talk .meta { color:var(--muted); font-size:14px; font-variant-numeric:tabular-nums; }
+  li.talk .title { font-size:20px; font-weight:600; letter-spacing:-0.01em; }
+  li.talk .format { color:var(--blue); font-size:13px; font-weight:600; text-transform:uppercase; letter-spacing:0.06em; }
+  footer { margin-top:64px; padding-top:24px; border-top:1px solid var(--line); color:var(--muted); font-size:14px; }
+  footer a { color:var(--ink-soft); }
+  @media (max-width:560px) {
+    body { padding:40px 20px 72px; }
+    h1 { font-size:34px; }
+    li.talk a { grid-template-columns:1fr; gap:6px; padding:16px 12px; margin:0 -12px; }
+    li.talk .format { order:-1; }
+  }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>talks <em>by Værksted AI</em></h1>
+    <p>Public decks and recordings from the team building <a href="https://maskin.io" style="color:var(--ink-soft);">Maskin</a>. Each deck is a single self-contained HTML page — press <kbd>?</kbd> for keyboard nav, <kbd>n</kbd> for speaker notes.</p>
+  </header>
+
+  <ul class="talks">
+    <li class="talk">
+      <a href="/talks/2026-09-webinar-loops/">
+        <span class="meta">Sep 2026</span>
+        <span>
+          <span class="title">from doing tasks to designing loops</span><br>
+          <span class="format">Webinar</span>
+        </span>
+      </a>
+    </li>
+  </ul>
+
+  <footer>
+    Source on <a href="https://github.com/vaerksted-ai/talks">github.com/vaerksted-ai/talks</a>. New talk? See the <a href="https://github.com/vaerksted-ai/talks#publishing-a-new-deck">README</a>.
+  </footer>
+</main>
+</body>
+</html>
