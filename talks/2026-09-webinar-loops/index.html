@@ -18,8 +18,8 @@
   }
   * { box-sizing:border-box; margin:0; padding:0; }
   html,body { height:100%; background:#0a0a0a; color:var(--ink); font-family:var(--font-display); overflow:hidden; }
-  .viewport { position:fixed; inset:0; display:grid; place-items:center; overflow:hidden; }
-  .stage { position:relative; width:var(--stage-w); height:var(--stage-h); background:var(--bg); transform-origin:center center; box-shadow:0 20px 80px rgba(0,0,0,0.35); }
+  .viewport { position:fixed; inset:0; overflow:hidden; }
+  .stage { position:absolute; left:50%; top:50%; width:var(--stage-w); height:var(--stage-h); background:var(--bg); transform-origin:center center; box-shadow:0 20px 80px rgba(0,0,0,0.35); }
   .slide { position:absolute; inset:0; display:none; padding:96px 120px; background:var(--bg); overflow:hidden; }
   .slide.active { display:block; }
   .slide::after { content:""; position:absolute; left:120px; bottom:48px; width:72px; height:3px; background:var(--blue); opacity:0; }
@@ -952,7 +952,7 @@ so each meeting builds on the last.</div>
   hudTotal.textContent = slides.length;
   function fitStage() {
     var s = Math.min(viewport.clientWidth / 1920, viewport.clientHeight / 1080);
-    stage.style.transform = 'scale(' + s + ')';
+    stage.style.transform = 'translate(-50%, -50%) scale(' + s + ')';
   }
   function show(i) {
     if (i < 0) i = 0;
@@ -990,4 +990,3 @@ so each meeting builds on the last.</div>
 </script>
 </body>
 </html>
-
