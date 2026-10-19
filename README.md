@@ -8,7 +8,7 @@ Three steps:
 
 1. Drop the built HTML at `/talks/{slug}/index.html`. Slug format: `YYYY-MM-{format}-{topic}` — e.g. `2026-11-meetup-cph`.
 2. Add a `<li class="talk">` entry to `/index.html` linking to the new slug (top of the list, newest first).
-3. Open a PR against `main`. Cloudflare Pages will build a preview URL on the PR — verify the deck renders end-to-end there (all slides, keyboard nav, `n`-key notes overlay). Merge → live at `talks.maskin.io/{slug}/`.
+3. Open a PR against `main`. Cloudflare Pages will build a preview URL on the PR — verify the deck renders end-to-end there (all slides, keyboard nav, `n`-key notes overlay). Merge → live at `talks.maskin.io/talks/{slug}/`.
 
 That's it. No build step, no framework. Static files served from the repo root.
 
