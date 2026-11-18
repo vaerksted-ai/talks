@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Run product discovery as a loop · webinar 18 Nov 2026</title>
+<meta name="description" content="Ten-slide stage deck (v7.0) for 18 Nov 2026. Discovery moves from a project to a loop, the path from data to impact with today's focus on Listen and Discover, the weekly loop as a ring, the one-voice rule, one graph for the setup and the framework, then most of the hour is live in the product. Ends with an offer: book a free hour and we set up your first loop with you.">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>
+:root{
+  color-scheme: light;
+  --bg:#FAFAF8; --ink:#0B0B0C; --ink2:#2A2A2E; --muted:#5F5F65; --line:#CFCBC2; --panel:#F0EDE7; --blue:#2563EB; --blue-lt:#8FB4FF; --on-blue:#FFFFFF;
+  --sans:"Schibsted Grotesk", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --serif:"Newsreader", ui-serif, Georgia, "Times New Roman", serif;
+  --mono:"JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --pad:96px 120px; --h1:140px; --h2:112px; --t:48px; --m:28px; --gap:32px;
+  font-optical-sizing:auto;
+}
+.compact{ --pad:56px 80px; --h1:96px; --h2:76px; --t:34px; --m:22px; --gap:24px; }
+.portrait{ --pad:56px 48px calc(56px + env(safe-area-inset-bottom)); --h1:92px; --h2:76px; --t:40px; --m:26px; --gap:20px; }
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);color:var(--ink);font-family:var(--sans);font-feature-settings:"kern"}
+html.darkslide,html.darkslide body{background:#0B0B0C}
+.stage{position:absolute;left:0;top:0;transform-origin:0 0;overflow:hidden;background:var(--bg)}
+.slide{position:absolute;inset:0;padding:var(--pad);display:none;flex-direction:column;background:var(--bg)}
+.slide.on{display:flex}
+h1,h2{font-weight:800;letter-spacing:-0.03em;line-height:1}
+h1{font-size:var(--h1)} h2{font-size:var(--h2)}
+.em{font-family:var(--serif);font-style:italic;font-weight:500;color:var(--blue);letter-spacing:-0.01em}
+.eyebrow{font-family:var(--mono);font-size:var(--m);color:var(--muted);letter-spacing:.04em;line-height:1.3}
+.eyebrow i{display:inline-block;width:12px;height:12px;border-radius:99px;background:var(--blue);margin-right:16px;vertical-align:middle}
+.lede{font-family:var(--serif);font-style:italic;font-size:calc(var(--t) * .95);line-height:1.25;color:var(--ink2);max-width:1400px}
+.lede b{font-family:var(--sans);font-style:normal;font-weight:700;color:var(--ink)}
+.foot{margin-top:auto;display:flex;justify-content:space-between;align-items:flex-end;gap:40px}
+.ruletxt{font-size:var(--t);font-weight:700;letter-spacing:-0.02em;line-height:1.12}
+.mt{margin-top:var(--gap)}
+
+/* s1 */
+.s1 h1{max-width:1480px;margin-top:0}
+.s1 .lede{margin-top:48px;max-width:1200px}
+.s1 .glyph{position:absolute;right:120px;bottom:96px;width:460px;height:330px}
+.s1 .meta{margin-top:auto;display:flex;gap:16px;flex-wrap:wrap}
+.pill{font-family:var(--mono);font-size:var(--m);border:2px solid var(--ink);border-radius:6px;padding:14px 24px;line-height:1.2}
+.pill.fill{background:var(--ink);color:var(--bg)}
+.compact .s1 .glyph{width:300px;height:215px;right:80px;bottom:56px}
+.compact .s1 h1{margin-top:0}.compact .s1 .lede{margin-top:28px}
+.portrait .s1 .glyph{position:static;width:100%;max-width:440px;height:auto;margin:36px 0 0}
+.portrait .s1 h1{margin-top:0}.portrait .s1 .lede{margin-top:32px}
+.portrait .s1 .meta{padding-top:28px}
+
+/* s2 */
+.s2 h2{font-size:calc(var(--h2) * .86)}
+.s2 .two{display:flex;gap:32px;margin-top:44px;flex:1}
+.panel{flex:1;border:2px solid var(--line);border-radius:10px;padding:40px 44px;background:var(--panel);display:flex;flex-direction:column;gap:24px}
+.panel.loop{border:4px solid var(--blue);background:var(--bg)}
+.panel .eyebrow{display:flex;justify-content:space-between;align-items:center;color:var(--muted)}
+.panel.loop .eyebrow{color:var(--blue)}
+.panel svg{width:200px;height:64px;flex:none}
+.panel ul{list-style:none;display:flex;flex-direction:column;gap:20px}
+.panel li{font-size:var(--t);font-weight:700;letter-spacing:-0.02em;line-height:1.1}
+.panel.proj li{color:var(--muted);font-weight:600}
+.strip{margin-top:32px;background:var(--ink);color:var(--bg);border-radius:10px;padding:30px 44px;font-size:calc(var(--t) * .9);font-weight:700;letter-spacing:-0.02em;line-height:1.15}
+.strip .em{color:var(--blue-lt)}
+.compact .s2 .two{margin-top:28px;gap:20px}.compact .panel{padding:24px 28px;gap:14px}.compact .panel ul{gap:12px}.compact .panel svg{width:130px;height:44px}.compact .strip{padding:20px 28px;margin-top:20px}
+.portrait .s2 .two{flex-direction:column;margin-top:28px;gap:16px;flex:none}.portrait .panel{padding:24px 28px;gap:14px}.portrait .panel ul{gap:12px}.portrait .panel svg{width:130px;height:44px}.portrait .strip{padding:24px 28px;margin-top:20px}
+
+
+/* s3 weekly loop as a ring */
+.ringrow{display:flex;flex:1;min-height:0;gap:80px;align-items:center;margin-top:12px}
+.ring{flex:none;height:100%;width:auto;aspect-ratio:1000/740;max-height:680px}
+.ring text{font-family:var(--sans)}
+.ringtxt{display:flex;flex-direction:column;gap:36px;min-width:0}
+.ringtxt .ruletxt{font-size:calc(var(--t) * 1.15);max-width:760px}
+.ringtxt .eyebrow{font-size:calc(var(--m) * 1.1)}
+.compact .ringrow{gap:40px;margin-top:6px}.compact .ringtxt{gap:20px}.compact .ringtxt .ruletxt{font-size:36px}
+.portrait .ringrow{flex-direction:column;gap:28px;align-items:flex-start;justify-content:flex-start;flex:none;margin-top:20px}
+.rp{display:none}.portrait .rl{display:none}.portrait .rp{display:block}.portrait .s3 h2 .em{display:block}.portrait .ring{width:100%;height:auto}.portrait .ringtxt .ruletxt{font-size:40px}.portrait .ringtxt{gap:20px}
+
+/* s4 one graph */
+.gwrap{flex:1;min-height:0;display:flex;align-items:center;margin:8px 0 8px}
+.gl,.gp{width:100%;height:auto;display:block}
+.gp{display:none}
+.gl text,.gp text{font-family:var(--sans)}
+.gl .sf,.gp .sf{font-family:var(--serif);font-style:italic}
+.portrait .gl{display:none}.portrait .gp{display:block}
+.portrait .gwrap{flex:none;margin:20px 0 20px}
+.portrait .s4 h2 .em{display:block}
+.s4 .strip{display:flex;align-items:center;gap:32px;margin-top:0}
+.s4 .strip .pill{flex:none;border-color:var(--blue);background:var(--blue);color:#fff}
+.compact .s4 .strip{padding:18px 28px;gap:24px}.compact .s4{padding-bottom:84px}
+.portrait .s4 .strip{flex-direction:column;align-items:flex-start;gap:14px;padding:22px 28px;font-size:32px}
+
+/* s6 black cue */
+.slide.dark{background:#0B0B0C;color:var(--bg)}
+.s6 .pill{border-color:rgba(255,255,255,.55);color:var(--bg);align-self:flex-start}
+.s6 .pill.fill{background:var(--blue);border-color:var(--blue);color:#fff}
+.s6 h1{margin-top:44px;color:var(--bg);font-size:calc(var(--h1) * 1.1)}
+.s6 .em{color:var(--blue-lt)}
+.three{margin-top:auto;display:flex;flex-direction:column;border-top:2px solid rgba(255,255,255,.28)}
+.three div{display:flex;align-items:baseline;gap:48px;padding:24px 0;border-bottom:2px solid rgba(255,255,255,.2);font-size:var(--t);font-weight:700;letter-spacing:-0.02em;line-height:1.1}
+.three span{font-family:var(--mono);font-weight:500;font-size:var(--m);color:var(--blue-lt);width:240px;flex:none;letter-spacing:0}
+.cue{font-family:var(--mono);font-size:var(--m);color:rgba(255,255,255,.7);margin-top:28px;letter-spacing:.04em}
+.compact .s6 h1{margin-top:24px}.compact .three div{padding:14px 0;gap:28px}.compact .three span{width:150px}.compact .cue{margin-top:18px}
+.portrait .s6 h1{margin-top:32px}.portrait .three div{flex-direction:column;gap:6px;padding:18px 0}.portrait .three span{width:auto}
+
+/* s7 */
+.s7 .two{display:flex;gap:32px;margin-top:56px;flex:1}
+.s7 .panel li{font-size:calc(var(--t) * 1.1)}.s7 .panel ul{gap:28px}
+.compact .s7 .two{margin-top:24px;gap:20px;min-height:0}.compact .s7 .panel{padding:22px 28px;gap:14px}.compact .s7 .panel ul{gap:10px}.compact .s7 .panel li{font-size:30px}.compact .s7 .foot{margin-top:20px}.portrait .s7 .two{flex-direction:column;margin-top:24px;gap:14px;flex:none}.portrait .s7 .panel{padding:20px 26px;gap:12px}.portrait .s7 .panel ul{gap:10px}.portrait .s7 .panel li{font-size:34px}.portrait .s7 .foot{margin-top:24px}
+.s7 .foot{margin-top:32px}
+
+/* s8 */
+.s8 h2{font-size:calc(var(--h2) * 1.35)}
+.s8 .ask{margin-top:44px;font-size:calc(var(--t) * 1.15);font-weight:700;letter-spacing:-0.025em;line-height:1.1;max-width:1500px}
+.s8 .cta{margin-top:auto;background:var(--ink);color:var(--bg);border-radius:10px;padding:48px 56px;font-size:calc(var(--t) * 1.1);font-weight:700;letter-spacing:-0.025em;line-height:1.12}
+.s8 .cta .em{color:var(--blue-lt)}
+.s8 .small{margin-top:28px}
+.s8 .foot9{margin-top:auto}
+.compact .s8{padding-bottom:92px}
+.s10 .ask{margin-top:44px}
+.s10 .cta{margin-top:auto}
+.s8 .cta .em{font-size:1em}
+.compact .s8 .ask{margin-top:24px}.compact .s8 .cta{padding:28px 36px}.compact .s8 .small{margin-top:18px}
+.portrait .s8 .ask{margin-top:28px}.portrait .s8 .cta{padding:32px 32px}
+
+/* map: path from data to impact (new in v6.6) */
+.map{--rt:60px}
+.map h2{font-size:calc(var(--h2) * .72)}
+.pipe{display:flex;margin-top:28px;position:relative;flex:none}
+.pipe::before{content:"";position:absolute;left:0;right:12px;top:var(--rt);height:4px;margin-top:-2px;background:var(--ink)}
+.pipe::after{content:"";position:absolute;right:0;top:var(--rt);margin-top:-12px;border:12px solid transparent;border-left:20px solid var(--ink);border-right:0}
+.hand{flex:none;width:0;position:relative;height:0}
+.hand em{position:absolute;left:0;top:calc(var(--rt) - 56px);transform:translateX(-50%);white-space:nowrap;font-family:var(--serif);font-style:italic;font-size:var(--m);color:var(--ink);line-height:1}
+.hand::after{content:"";position:absolute;left:-11px;top:calc(var(--rt) - 11px);width:22px;height:22px;border-radius:99px;background:var(--blue);border:4px solid var(--bg);box-sizing:border-box}
+.hand.first em{transform:none}
+.hand.last em{transform:translateX(-100%)}
+.hand.last::after{display:none}
+.col{flex:1;margin:0 8px;padding-top:calc(var(--rt) + 24px);min-width:0}
+.col.c1,.col.c2{flex:1.5}.col.c3,.col.c4,.col.c5{flex:1.2}
+.cbox{border:2px solid var(--line);border-radius:10px;padding:20px 22px;background:var(--bg);height:100%}
+.col.focus .cbox{background:#EAF0FF;border:4px solid var(--blue);padding:18px 20px}
+.ch{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}
+.cn{font-size:calc(var(--t) * .8);font-weight:800;letter-spacing:-0.025em;line-height:1.05}
+.col.dim .cn{color:var(--muted)}
+.col.focus .cn{font-size:calc(var(--h2) * .62)}
+.cd{font-size:calc(var(--t) * .72);font-weight:600;letter-spacing:-0.015em;line-height:1.15;color:var(--ink2);margin-top:6px}
+.map .pill{align-self:flex-start;border-color:var(--blue);background:var(--blue);color:#fff;font-size:calc(var(--m) * .8);padding:10px 18px;margin-bottom:28px}
+.tg{font-family:var(--mono);font-size:20px;line-height:1;padding:8px 12px;border-radius:6px;background:var(--blue);color:#fff;flex:none}
+.hm{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:20px;font-weight:700;line-height:1;background:var(--ink);color:var(--bg);border-radius:6px;padding:9px 14px;margin-bottom:14px}
+.hm svg{width:22px;height:22px;flex:none}
+.hm{white-space:nowrap}
+.cbox{min-height:330px}
+.map .pipe{margin-top:28px}.map .foot{padding-top:20px}
+.fl{list-style:none;display:flex;flex-direction:column;gap:10px}
+.fl li{font-size:calc(var(--m) * 1.06);font-weight:600;line-height:1.15;color:var(--ink2)}
+.col.dim .fl li{color:var(--muted)}
+.map .foot{margin-top:auto}
+.compact .map{--rt:44px}
+.compact .pipe{margin-top:14px}.compact .hm{white-space:normal;line-height:1.15;align-items:center}.compact .col.c1,.compact .col.c2{flex:1.3}.compact .cbox{min-height:0}.compact .map .pill{margin-bottom:12px;padding:6px 14px;font-size:20px}.compact .col.focus .cn{font-size:48px}.compact .cd{font-size:24px}
+.compact .col{margin:0 6px}.compact .cbox{padding:12px 14px}.compact .col.focus .cbox{padding:10px 12px}.compact .ch{margin-bottom:8px}.compact .hm{margin-bottom:8px;padding:7px 10px}.compact .fl{gap:6px}
+.portrait .map{--rt:0px}
+.portrait .map h2{font-size:56px}
+.portrait .pipe{flex-direction:column;margin-top:26px}.portrait .cbox{min-height:0}
+.portrait .pipe::before{left:14px;right:auto;top:18px;bottom:18px;width:4px;height:auto;margin:0}
+.portrait .pipe::after{display:none}
+.portrait .hand{width:auto;height:auto;display:flex;align-items:center;gap:18px;padding:1px 0 1px 4px}
+.portrait .hand::after{position:static;order:-1;flex:none}
+.portrait .hand em,.portrait .hand.first em,.portrait .hand.last em{position:static;transform:none;font-size:25px}
+.portrait .hand.last::after{display:block}
+.portrait .col,.portrait .col.c1,.portrait .col.c4,.portrait .col.c5{flex:none;margin:0 0 0 44px;padding-top:0}
+.portrait .cbox{padding:10px 16px 12px;height:auto}.portrait .col.focus .cbox{padding:8px 14px 10px}
+.portrait .cn{font-size:32px}
+.portrait .tg,.portrait .hm{font-size:24px}
+.portrait .ch{margin-bottom:8px}.portrait .hm{margin-bottom:8px;padding:6px 12px}
+.portrait .fl{flex-direction:row;flex-wrap:wrap;gap:4px 20px}
+.portrait .fl li{font-size:25px}
+.portrait .map .foot{margin-top:16px}.portrait .map .ruletxt{font-size:34px}.portrait .map .pill{font-size:24px;margin-bottom:16px}.portrait .col.focus .cn{font-size:60px}.portrait .cd{font-size:32px}.portrait .cn{font-size:40px!important}.portrait .col.focus .cn{font-size:60px!important}.portrait .cbox{padding:16px 20px 18px}.portrait .col.focus .cbox{padding:14px 18px 16px}
+
+
+/* flows on the map (v6.6) */
+.cbox{display:flex;flex-direction:column;min-height:350px}
+.cbox .hm{margin-top:auto;align-self:flex-start;margin-bottom:0}
+.fl2{list-style:none;display:flex;flex-direction:column;gap:20px;margin-bottom:22px}
+.fl2 b{display:block;font-size:calc(var(--t) * .64);font-weight:800;letter-spacing:-0.02em;line-height:1.1;color:var(--ink)}
+.fl2 span{display:block;font-size:calc(var(--m) * .92);font-weight:500;color:var(--ink2);line-height:1.2;margin-top:5px}
+.col.dim .fl2 b{font-size:calc(var(--t) * .56);color:var(--muted)}
+.col.dim .fl2 span{color:var(--muted);font-size:calc(var(--m) * .84)}
+.map .col.c1{flex:1.8}.map .col.c2{flex:1.65}.map .col.c3,.map .col.c4,.map .col.c5{flex:1.2}
+.compact .map .col.c1{flex:2.3}.compact .map .col.c2{flex:1.6}.compact .map .col.c3,.compact .map .col.c4,.compact .map .col.c5{flex:1}
+.compact .map .pipe{margin-top:34px}.compact .cbox{min-height:0}.compact .fl2{gap:10px;margin-bottom:10px}.compact .fl2 b{font-size:21px}.compact .fl2 span{font-size:20px;margin-top:2px}
+.compact .col.dim .fl2 b,.compact .col.dim .fl2 span{font-size:20px}
+.portrait .cbox{min-height:0}.portrait .fl2{gap:8px;margin-bottom:10px}.portrait .fl2 b{font-size:30px}.portrait .fl2 span{font-size:24px;margin-top:1px}
+.portrait .col.dim .fl2 b{font-size:30px}.portrait .col.dim .fl2 span{font-size:24px}
+.portrait .cbox{flex-direction:row;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:0 12px}.portrait .cbox .ch{margin-bottom:6px}.portrait .cbox .hm{margin:0 0 6px;order:2}.portrait .cbox .fl2{order:3;width:100%;margin-bottom:0}.portrait .col.dim .fl2 span{display:none}.portrait .col.focus .cn{font-size:52px!important}
+
+/* sources on the far left (new in v6.6) */
+.srcbox{flex:none;width:136px;position:relative;margin-right:20px;padding-top:calc(var(--rt) + 24px)}
+.sl{position:absolute;left:0;top:calc(var(--rt) - 53px);font-family:var(--mono);font-size:22px;color:var(--muted);line-height:1;letter-spacing:.02em}
+.sg{display:grid;grid-template-columns:repeat(2,56px);gap:12px}
+.sg-i{width:56px;height:56px;border:2px solid var(--line);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--muted);background:var(--bg)}
+.sg-i svg{width:30px;height:30px}
+.sg-i.more{border-style:dashed}
+.col.focus .cn{font-size:calc(var(--h2) * .56)}
+.compact .col.focus .cn{font-size:38px}
+.compact .srcbox{width:104px;margin-right:12px}.compact .sg{grid-template-columns:repeat(2,44px);gap:8px}.compact .sg-i{width:44px;height:44px;border-radius:8px}.compact .sg-i svg{width:24px;height:24px}.compact .sl{top:calc(var(--rt) - 56px)}
+.portrait .srcbox{width:auto;margin:0 0 0 44px;padding-top:0}.portrait .sl{position:static;font-size:25px;margin:4px 0 8px}.portrait .sg{grid-template-columns:repeat(8,1fr);gap:6px;max-width:620px}.portrait .sg-i{width:auto;aspect-ratio:1;border-radius:8px}.portrait .sg-i svg{width:62%;height:62%}
+
+
+/* controls */
+.ctr{position:fixed;right:20px;bottom:calc(14px + env(safe-area-inset-bottom));font-family:var(--mono);font-size:16px;color:var(--muted);z-index:5;background:rgba(250,250,248,.8);padding:2px 8px;border-radius:6px}
+html.darkslide .ctr{color:rgba(255,255,255,.7);background:rgba(11,11,12,.7)}
+.tap{position:fixed;top:0;bottom:0;width:20%;min-width:44px;z-index:4}
+.tap.l{left:0}.tap.r{right:0}
+.notes{position:fixed;left:0;right:0;bottom:0;max-height:55%;overflow:auto;background:#101013;color:#E9E9E6;border-top:3px solid var(--blue);padding:24px 32px;font:20px/1.5 var(--sans);display:none;z-index:6}
+.notes.on{display:block}
+@media print{
+  html,body{overflow:visible;height:auto}
+  .stage{position:static;transform:none!important;width:1920px!important;height:auto!important}
+  .slide{display:flex!important;position:relative;width:1920px;height:1080px;break-after:page}
+  .ctr,.tap,.notes{display:none!important}
+}
+@media (prefers-reduced-motion: reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+/* v6.8 */
+.notes{display:none!important}
+.s5r .strip .em{white-space:nowrap}
+.portrait .map .pill{margin-bottom:8px;padding:8px 16px}.portrait .map .pipe{margin-top:12px}.portrait .col.focus .cn{font-size:44px!important}.portrait .cbox,.portrait .col.focus .cbox{padding:10px 16px 12px}.portrait .fl2{gap:6px}.portrait .map .ruletxt{font-size:30px}.portrait .map .foot{margin-top:10px}
+.s11 .vid{flex:1;min-height:0;display:flex;align-items:center;justify-content:center;margin-top:36px}.s11 .vid iframe{height:100%;max-width:100%;aspect-ratio:16/9;border:0;border-radius:10px;background:var(--ink)}.portrait .s11 .vid{flex:none;margin-top:28px}.portrait .s11 .vid iframe{width:100%;height:auto}
+</style>
+</head>
+<body>
+<div class="stage" id="stage">
+
+<section class="slide s1 on" id="s1">
+  <h1>From discovery as a project to discovery as a <span class="em">loop.</span></h1>
+  <p class="lede">By the end you can run discovery so it keeps going, <b>and you know what you keep for yourself.</b></p>
+  <svg class="glyph" viewBox="0 0 420 300" aria-hidden="true">
+    <g fill="none" stroke="#2A2A2E" stroke-width="2" opacity=".6">
+      <path d="M0 40H100L200 150"/><path d="M20 70H110L200 150"/><path d="M0 100H120L200 150"/><path d="M30 130H130L200 150"/>
+      <path d="M0 170H130L200 150"/><path d="M20 200H120L200 150"/><path d="M0 230H100L200 150"/><path d="M30 260H90L200 150"/>
+    </g>
+    <path d="M200 150H250" stroke="#2563EB" stroke-width="4"/>
+    <rect x="250" y="110" width="110" height="80" rx="4" fill="#2563EB"/>
+    <path d="M360 150H400V290H8V130H20" fill="none" stroke="#2563EB" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M14 122L28 130L14 138" fill="#2563EB"/>
+  </svg>
+  <div class="meta"><span class="pill fill">Wed 18 Nov</span></div>
+</section>
+
+<section class="slide s2" id="s2">
+  <h2>Discovery was a project.<br><span class="em">Make it a loop.</span></h2>
+  <div class="two">
+    <div class="panel proj">
+      <p class="eyebrow">Project
+        <svg viewBox="0 0 200 64" aria-hidden="true"><path d="M4 32H150" stroke="#5F5F65" stroke-width="6" fill="none"/><path d="M170 8V56" stroke="#5F5F65" stroke-width="8" fill="none"/></svg></p>
+      <ul><li>Two weeks of interviews</li><li>A writeup, then stale notes</li><li>Then it stops</li></ul>
+    </div>
+    <div class="panel loop">
+      <p class="eyebrow">Loop
+        <svg viewBox="0 0 200 64" aria-hidden="true"><path d="M30 10H150A22 22 0 0 1 150 54H50" stroke="#2563EB" stroke-width="6" fill="none" stroke-linejoin="round"/><path d="M62 40L44 54L62 68" transform="translate(0,-4)" stroke="#2563EB" stroke-width="6" fill="none" stroke-linejoin="round" stroke-linecap="round"/><circle cx="30" cy="10" r="8" fill="#2563EB"/></svg></p>
+      <ul><li>Sources come in, all the time</li><li>Insights filed with their source</li><li>A person decides</li></ul>
+    </div>
+  </div>
+  <p class="strip">The outcome: the right things, for the right customers, that earn money. <span class="em">Discovery is the means.</span></p>
+</section>
+
+<section class="slide map" id="s3">
+  <p class="pill fill">Ours, how we run it</p>
+  <h2>From data to <span class="em">impact.</span></h2>
+  <div class="pipe">
+        <div class="srcbox"><p class="sl">Sources</p><div class="sg"><span class="sg-i" title="Email"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span><span class="sg-i" title="Calls"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="13" height="12" rx="2"/><path d="M16 10l5-3v10l-5-3"/></svg></span><span class="sg-i" title="Chat"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4z"/></svg></span><span class="sg-i" title="Documents"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4M9 12h6M9 16h6"/></svg></span><span class="sg-i" title="Code"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><circle cx="18" cy="9" r="2"/><path d="M6 7v10M18 11c0 4-6 3-12 6"/></svg></span><span class="sg-i" title="People"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-4 3-6 6-6s6 2 6 6"/><circle cx="17" cy="9" r="2.4"/><path d="M17 14c3 0 4.5 2 4.5 5"/></svg></span><span class="sg-i" title="Search"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6"/><path d="M15 15l6 6"/></svg></span><span class="sg-i more" title="and more"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 6v12M6 12h12"/></svg></span></div></div>
+    <div class="hand first"><em>data</em></div>
+    <div class="col c1 focus"><div class="cbox"><div class="ch"><p class="cn">Listen</p></div><ul class="fl2"><li><b>Account watch</b><span>The accounts we most want to win or keep</span></li><li><b>Community listening</b><span>Communities, voices and open source</span></li><li><b>Meeting insights</b><span>What was said in our calls</span></li></ul></div></div>
+    <div class="hand"><em>signal</em></div>
+    <div class="col c2 focus"><div class="cbox"><div class="ch"><p class="cn">Discover</p></div><ul class="fl2"><li><b>Product Discovery</b><span>Signals become ranked opportunities</span></li></ul></div></div>
+    <div class="hand"><em>opportunity</em></div>
+    <div class="col c3 dim"><div class="cbox"><div class="ch"><p class="cn">Decide</p></div><p class="hm"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4.5" fill="currentColor"/><path d="M3 22c0-5 4-8 9-8s9 3 9 8z" fill="currentColor"/></svg>People decide</p></div></div>
+    <div class="hand"><em>active bet</em></div>
+    <div class="col c4 dim"><div class="cbox"><div class="ch"><p class="cn">Build</p></div><ul class="fl2"><li><b>Product Delivery</b><span>Active bets get built and shipped</span></li></ul><p class="hm"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4.5" fill="currentColor"/><path d="M3 22c0-5 4-8 9-8s9 3 9 8z" fill="currentColor"/></svg>People design</p></div></div>
+    <div class="hand"><em>live</em></div>
+    <div class="col c5 dim"><div class="cbox"><div class="ch"><p class="cn">Release</p></div><ul class="fl2"><li><b>Product release</b><span>Merged changes go out together</span></li></ul><p class="hm"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4.5" fill="currentColor"/><path d="M3 22c0-5 4-8 9-8s9 3 9 8z" fill="currentColor"/></svg>People verify</p></div></div>
+    <div class="hand last"><em>impact</em></div>
+  </div>
+  <div class="foot"><p class="ruletxt">Today we go deep on Listen and <span class="em">Discover.</span></p></div>
+</section>
+
+<section class="slide s3" id="s4">
+  <p class="eyebrow"><i></i>The loop, every week</p>
+  <h2 class="mt">Five steps. <span class="em">Then again.</span></h2>
+  <div class="ringrow">
+    <svg class="ring rl" viewBox="0 -14 1000 740" role="img" aria-label="Five steps in a ring: sources come in, insights are filed, opportunities staged, ranked, a person decides, then it starts again"><circle cx="500" cy="380" r="300" fill="none" stroke="#2563EB" stroke-width="6"/><path d="M729.4,185.4L690.6,174.2L718.8,146.4Z" fill="#2563EB"/><path d="M783.2,481.4L773.5,442.2L811.7,452.7Z" fill="#2563EB"/><path d="M478.0,680.0L513.2,660.2L513.2,699.8Z" fill="#2563EB"/><path d="M205.0,439.0L233.5,467.6L195.4,478.2Z" fill="#2563EB"/><path d="M301.4,154.0L290.9,193.0L262.7,165.3Z" fill="#2563EB"/><rect x="345.0" y="22.0" width="310" height="116" rx="14" fill="#FAFAF8" stroke="#0B0B0C" stroke-width="4"/><text x="500.0" y="74.0" text-anchor="middle" font-size="34" font-weight="800" fill="#0B0B0C" letter-spacing="-0.7">Sources</text><text x="500.0" y="114.0" text-anchor="middle" font-size="34" font-weight="800" fill="#0B0B0C" letter-spacing="-0.7">come in</text><circle cx="345.0" cy="22.0" r="26" fill="#2563EB"/><text x="345.0" y="33.0" text-anchor="middle" font-size="32" font-weight="700" fill="#FFFFFF" style="font-family:var(--mono)">1</text><rect x="630.3" y="229.3" width="310" height="116" rx="14" fill="#FAFAF8" stroke="#0B0B0C" stroke-width="4"/><text x="785.3" y="281.3" text-anchor="middle" font-size="34" font-weight="800" fill="#0B0B0C" letter-spacing="-0.7">Insights</text><text x="785.3" y="321.3" text-anchor="middle" font-size="34" font-weight="800" fill="#0B0B0C" letter-spacing="-0.7">are filed</text><circle cx="630.3" cy="229.3" r="26" fill="#2563EB"/><text x="630.3" y="240.3" text-anchor="middle" font-size="32" font-weight="700" fill="#FFFFFF" style="font-family:var(--mono)">2</text><rect x="521.3" y="564.7" width="310" height="116" rx="14" fill="#FAFAF8" stroke="#0B0B0C" stroke-width="4"/><text x="676.3" y="616.7" text-anchor="middle" font-size="34" font-weight="800" fill="#0B0B0C" letter-spacing="-0.7">Opportunities</text><text x="676.3" y="656.7" text-anchor="middle" font-size="34" font-weight="800" fill="#0B0B0C" letter-spacing="-0.7">staged</text><circle cx="521.3" cy="564.7" r="26" fill="#2563EB"/><text x="521.3" y="575.7" text-anchor="middle" font-size="32" font-weight="700" fill="#FFFFFF" style="font-family:var(--mono)">3</text><rect x="168.7" y="564.7" width="310" height="116" rx="14" fill="#FAFAF8" stroke="#0B0B0C" stroke-width="4"/><text x="323.7" y="634.7" text-anchor="middle" font-size="34" font-weight="800" fill="#0B0B0C" letter-spacing="-0.7">Ranked</text><circle cx="168.7" cy="564.7" r="26" fill="#2563EB"/><text x="168.7" y="575.7" text-anchor="middle" font-size="32" font-weight="700" fill="#FFFFFF" style="font-family:var(--mono)">4</text><rect x="59.7" y="229.3" width="310" height="116" rx="14" fill="#2563EB" stroke="#2563EB" stroke-width="4"/><text x="214.7" y="281.3" text-anchor="middle" font-size="34" font-weight="800" fill="#FFFFFF" letter-spacing="-0.7">A person</text><text x="214.7" y="321.3" text-anchor="middle" font-size="34" font-weight="800" fill="#FFFFFF" letter-spacing="-0.7">decides</text><circle cx="59.7" cy="229.3" r="26" fill="#0B0B0C"/><text x="59.7" y="240.3" text-anchor="middle" font-size="32" font-weight="700" fill="#FFFFFF" style="font-family:var(--mono)">5</text><text x="500" y="376" text-anchor="middle" class="sf" font-size="60" fill="#2563EB" style="font-family:var(--serif);font-style:italic">every week</text><text x="500" y="424" text-anchor="middle" font-size="32" fill="#5F5F65">then it starts again</text></svg><svg class="ring rp" viewBox="0 30 624 520" role="img" aria-label="Five steps in a ring: sources come in, insights are filed, opportunities staged, ranked, a person decides, then it starts again"><circle cx="312" cy="300" r="205" fill="none" stroke="#2563EB" stroke-width="5"/><path d="M472.5,171.2L440.9,161.6L464.3,139.2Z" fill="#2563EB"/><path d="M505.0,371.3L497.0,339.2L528.3,347.8Z" fill="#2563EB"/><path d="M109.5,336.6L132.7,360.1L101.4,368.6Z" fill="#2563EB"/><path d="M176.4,145.2L168.1,177.2L144.7,154.8Z" fill="#2563EB"/><rect x="200.0" y="53.0" width="224" height="84" rx="12" fill="#FAFAF8" stroke="#0B0B0C" stroke-width="3.5"/><text x="312.0" y="92.0" text-anchor="middle" font-size="25" font-weight="800" fill="#0B0B0C" letter-spacing="-0.4">Sources</text><text x="312.0" y="121.0" text-anchor="middle" font-size="25" font-weight="800" fill="#0B0B0C" letter-spacing="-0.4">come in</text><circle cx="222.0" cy="53.0" r="19" fill="#2563EB"/><text x="222.0" y="61.0" text-anchor="middle" font-size="28" font-weight="700" fill="#FFFFFF" style="font-family:var(--mono)">1</text><rect x="395.0" y="194.7" width="224" height="84" rx="12" fill="#FAFAF8" stroke="#0B0B0C" stroke-width="3.5"/><text x="507.0" y="233.7" text-anchor="middle" font-size="25" font-weight="800" fill="#0B0B0C" letter-spacing="-0.4">Insights</text><text x="507.0" y="262.7" text-anchor="middle" font-size="25" font-weight="800" fill="#0B0B0C" letter-spacing="-0.4">are filed</text><circle cx="417.0" cy="194.7" r="19" fill="#2563EB"/><text x="417.0" y="202.7" text-anchor="middle" font-size="28" font-weight="700" fill="#FFFFFF" style="font-family:var(--mono)">2</text><rect x="320.5" y="423.8" width="224" height="84" rx="12" fill="#FAFAF8" stroke="#0B0B0C" stroke-width="3.5"/><text x="432.5" y="462.8" text-anchor="middle" font-size="25" font-weight="800" fill="#0B0B0C" letter-spacing="-0.4">Opportunities</text><text x="432.5" y="491.8" text-anchor="middle" font-size="25" font-weight="800" fill="#0B0B0C" letter-spacing="-0.4">staged</text><circle cx="342.5" cy="423.8" r="19" fill="#2563EB"/><text x="342.5" y="431.8" text-anchor="middle" font-size="28" font-weight="700" fill="#FFFFFF" style="font-family:var(--mono)">3</text><rect x="79.5" y="423.8" width="224" height="84" rx="12" fill="#FAFAF8" stroke="#0B0B0C" stroke-width="3.5"/><text x="191.5" y="474.8" text-anchor="middle" font-size="25" font-weight="800" fill="#0B0B0C" letter-spacing="-0.4">Ranked</text><circle cx="101.5" cy="423.8" r="19" fill="#2563EB"/><text x="101.5" y="431.8" text-anchor="middle" font-size="28" font-weight="700" fill="#FFFFFF" style="font-family:var(--mono)">4</text><rect x="5.0" y="194.7" width="224" height="84" rx="12" fill="#2563EB" stroke="#2563EB" stroke-width="3.5"/><text x="117.0" y="233.7" text-anchor="middle" font-size="25" font-weight="800" fill="#FFFFFF" letter-spacing="-0.4">A person</text><text x="117.0" y="262.7" text-anchor="middle" font-size="25" font-weight="800" fill="#FFFFFF" letter-spacing="-0.4">decides</text><circle cx="27.0" cy="194.7" r="19" fill="#0B0B0C"/><text x="27.0" y="202.7" text-anchor="middle" font-size="28" font-weight="700" fill="#FFFFFF" style="font-family:var(--mono)">5</text><text x="312" y="298" text-anchor="middle" font-size="46" fill="#2563EB" style="font-family:var(--serif);font-style:italic">every week</text><text x="312" y="334" text-anchor="middle" font-size="25" fill="#5F5F65">then it starts again</text></svg>
+    <div class="ringtxt"><p class="ruletxt">An insight counts as signal when independent sources agree.</p><p class="eyebrow">Sources read all the time.<br>Ranking refreshed weekly.</p></div>
+  </div>
+</section>
+
+<section class="slide s4 s5r" id="s5">
+  <p class="eyebrow"><i></i>The rule (schematic)</p>
+  <h2 class="mt">One voice is <span class="em">one voice.</span></h2>
+  <div class="gwrap"><svg class="gl" viewBox="0 0 1680 480" role="img" aria-label="Two rows. Many mentions from one group are one voice, and it waits. Separate sources describing the same problem become signal, and an opportunity is staged.">
+  <text x="0" y="92" font-size="40" font-weight="800" fill="#5F5F65">Many mentions,</text><text x="0" y="140" font-size="40" font-weight="800" fill="#5F5F65">one group</text>
+  <rect x="640" y="40" width="400" height="120" rx="60" fill="none" stroke="#9A9AA0" stroke-width="4"/>
+  <circle cx="735" cy="100" r="16" fill="#5F5F65"/><circle cx="805" cy="100" r="16" fill="#5F5F65"/><circle cx="875" cy="100" r="16" fill="#5F5F65"/><circle cx="945" cy="100" r="16" fill="#5F5F65"/>
+  <path d="M1070 100H1200" stroke="#9A9AA0" stroke-width="4" fill="none"/><path d="M1196 86L1220 100L1196 114Z" fill="#9A9AA0"/>
+  <text x="1250" y="98" font-size="56" font-weight="800" fill="#5F5F65">One voice.</text><text x="1250" y="150" font-size="48" fill="#5F5F65" class="sf">It waits.</text>
+  <text x="0" y="345" font-size="40" font-weight="800" fill="#0B0B0C">Separate sources,</text><text x="0" y="393" font-size="40" font-weight="800" fill="#0B0B0C">same problem</text>
+  <path d="M730 290L950 360M730 360L950 360M730 430L950 360" stroke="#2563EB" stroke-width="3" fill="none"/>
+  <circle cx="700" cy="290" r="30" fill="#FAFAF8" stroke="#2563EB" stroke-width="4"/><circle cx="700" cy="290" r="11" fill="#2563EB"/>
+  <circle cx="700" cy="360" r="30" fill="#FAFAF8" stroke="#2563EB" stroke-width="4"/><circle cx="700" cy="360" r="11" fill="#2563EB"/>
+  <circle cx="700" cy="430" r="30" fill="#FAFAF8" stroke="#2563EB" stroke-width="4"/><circle cx="700" cy="430" r="11" fill="#2563EB"/>
+  <circle cx="984" cy="360" r="34" fill="#2563EB"/>
+  <path d="M1030 360H1200" stroke="#2563EB" stroke-width="4" fill="none"/><path d="M1196 346L1220 360L1196 374Z" fill="#2563EB"/>
+  <text x="1250" y="350" font-size="56" font-weight="800" fill="#2563EB">Signal.</text><text x="1250" y="400" font-size="40" font-weight="700" fill="#0B0B0C">An opportunity</text><text x="1250" y="446" font-size="40" font-weight="700" fill="#0B0B0C">is staged.</text>
+</svg><svg class="gp" viewBox="0 0 624 530" role="img" aria-label="Two rows. Many mentions from one group are one voice, and it waits. Separate sources describing the same problem become signal, and an opportunity is staged.">
+  <text x="0" y="36" font-size="34" font-weight="800" fill="#5F5F65">Many mentions, one group</text>
+  <rect x="0" y="64" width="300" height="104" rx="52" fill="none" stroke="#9A9AA0" stroke-width="4"/>
+  <circle cx="66" cy="116" r="14" fill="#5F5F65"/><circle cx="122" cy="116" r="14" fill="#5F5F65"/><circle cx="178" cy="116" r="14" fill="#5F5F65"/><circle cx="234" cy="116" r="14" fill="#5F5F65"/>
+  <path d="M316 116H370" stroke="#9A9AA0" stroke-width="4" fill="none"/><path d="M366 104L388 116L366 128Z" fill="#9A9AA0"/>
+  <text x="404" y="112" font-size="34" font-weight="800" fill="#5F5F65">One voice.</text><text x="404" y="158" font-size="34" fill="#5F5F65" class="sf">It waits.</text>
+  <text x="0" y="262" font-size="34" font-weight="800" fill="#0B0B0C">Separate sources,</text><text x="0" y="300" font-size="34" font-weight="800" fill="#0B0B0C">same problem</text>
+  <g transform="translate(0,32)"><path d="M86 318L216 390M86 390L216 390M86 462L216 390" stroke="#2563EB" stroke-width="3" fill="none"/>
+  <circle cx="60" cy="318" r="26" fill="#FAFAF8" stroke="#2563EB" stroke-width="4"/><circle cx="60" cy="318" r="9" fill="#2563EB"/>
+  <circle cx="60" cy="390" r="26" fill="#FAFAF8" stroke="#2563EB" stroke-width="4"/><circle cx="60" cy="390" r="9" fill="#2563EB"/>
+  <circle cx="60" cy="462" r="26" fill="#FAFAF8" stroke="#2563EB" stroke-width="4"/><circle cx="60" cy="462" r="9" fill="#2563EB"/>
+  <circle cx="244" cy="390" r="28" fill="#2563EB"/>
+  <path d="M276 390H340" stroke="#2563EB" stroke-width="4" fill="none"/><path d="M336 378L358 390L336 402Z" fill="#2563EB"/>
+  <text x="378" y="386" font-size="34" font-weight="800" fill="#2563EB">Signal.</text><text x="378" y="428" font-size="28" font-weight="700" fill="#0B0B0C">An opportunity</text><text x="378" y="462" font-size="28" font-weight="700" fill="#0B0B0C">is staged.</text></g>
+</svg></div>
+</section>
+
+<section class="slide s4" id="s6">
+  <p class="eyebrow"><i></i>The setup and the framework</p>
+  <h2 class="mt">One graph. <span class="em">Everything linked.</span></h2>
+  <div class="gwrap"><svg class="gl" viewBox="0 0 1680 500" role="img" aria-label="A graph: bets link to opportunities, opportunities link to signal insights, noise has no links, and opportunities are reviewed against strategic context"><path d="M490 297L570 202" stroke="#2563EB" stroke-width="3" fill="none"/><path d="M570 297L570 202" stroke="#2563EB" stroke-width="3" fill="none"/><path d="M650 297L570 202" stroke="#2563EB" stroke-width="3" fill="none"/><path d="M760 297L840 202" stroke="#2563EB" stroke-width="3" fill="none"/><path d="M840 297L840 202" stroke="#2563EB" stroke-width="3" fill="none"/><path d="M920 297L840 202" stroke="#2563EB" stroke-width="3" fill="none"/><path d="M1030 297L1110 202" stroke="#2563EB" stroke-width="3" fill="none"/><path d="M1110 297L1110 202" stroke="#2563EB" stroke-width="3" fill="none"/><path d="M1190 297L1110 202" stroke="#2563EB" stroke-width="3" fill="none"/><path d="M650 297L840 202" stroke="#2563EB" stroke-width="3" fill="none" opacity=".55"/><path d="M570 138L570 78M1110 138L1110 78" stroke="#0B0B0C" stroke-width="4" fill="none"/><rect x="510" y="118" width="660" height="104" rx="52" fill="none" stroke="#2563EB" stroke-width="4" stroke-dasharray="14 10"/><circle cx="570" cy="170" r="32" fill="#2563EB"/><circle cx="840" cy="170" r="32" fill="#2563EB"/><circle cx="1110" cy="170" r="32" fill="#2563EB"/><rect x="542" y="22" width="56" height="56" rx="8" fill="#0B0B0C"/><rect x="1082" y="22" width="56" height="56" rx="8" fill="#0B0B0C"/><circle cx="490" cy="310" r="13" fill="#2563EB"/><circle cx="570" cy="310" r="13" fill="#2563EB"/><circle cx="650" cy="310" r="13" fill="#2563EB"/><circle cx="760" cy="310" r="13" fill="#2563EB"/><circle cx="840" cy="310" r="13" fill="#2563EB"/><circle cx="920" cy="310" r="13" fill="#2563EB"/><circle cx="1030" cy="310" r="13" fill="#2563EB"/><circle cx="1110" cy="310" r="13" fill="#2563EB"/><circle cx="1190" cy="310" r="13" fill="#2563EB"/><circle cx="520" cy="430" r="9" fill="#9A9AA0"/><circle cx="600" cy="452" r="9" fill="#9A9AA0"/><circle cx="700" cy="436" r="9" fill="#9A9AA0"/><circle cx="790" cy="456" r="9" fill="#9A9AA0"/><circle cx="900" cy="432" r="9" fill="#9A9AA0"/><circle cx="980" cy="452" r="9" fill="#9A9AA0"/><circle cx="1070" cy="436" r="9" fill="#9A9AA0"/><circle cx="1160" cy="454" r="9" fill="#9A9AA0"/><text x="0" y="44" font-size="36" font-weight="800" fill="#0B0B0C">Bets</text><text x="0" y="78" font-size="30" font-weight="400" fill="#5F5F65">A commitment with an owner</text><text x="0" y="150" font-size="36" font-weight="800" fill="#0B0B0C">Opportunities</text><text x="0" y="190" font-size="30" font-weight="400" fill="#5F5F65">What is worth solving,</text><text x="0" y="226" font-size="30" font-weight="400" fill="#5F5F65">kept few</text><text x="0" y="290" font-size="36" font-weight="800" fill="#0B0B0C">Insights</text><text x="0" y="330" font-size="30" font-weight="400" fill="#5F5F65">Signal when independent</text><text x="0" y="366" font-size="30" font-weight="400" fill="#5F5F65">sources agree</text><text x="0" y="434" font-size="36" font-weight="800" fill="#0B0B0C">Noise</text><text x="0" y="468" font-size="30" font-weight="400" fill="#5F5F65">One-off or unsourced</text><rect x="1436" y="60" width="244" height="310" rx="10" fill="#0B0B0C"/><text x="1458" y="128" font-size="36" font-weight="800" fill="#FFFFFF">Strategic</text><text x="1458" y="172" font-size="36" font-weight="800" fill="#FFFFFF">context</text><text x="1458" y="232" font-size="30" font-weight="400" fill="#C9C9CE">What you are</text><text x="1458" y="270" font-size="30" font-weight="400" fill="#C9C9CE">trying to</text><text x="1458" y="308" font-size="30" font-weight="400" fill="#C9C9CE">achieve</text><path d="M1174 170H1418" stroke="#2563EB" stroke-width="5" stroke-dasharray="14 10" fill="none"/><path d="M1418 156L1434 170L1418 184Z" fill="#2563EB"/><text x="1300" y="146" font-size="30" font-weight="400" fill="#2563EB" text-anchor="middle" class="sf">reviewed against</text></svg><svg class="gp" viewBox="0 0 624 700" role="img" aria-label="A graph: bets link to opportunities, opportunities link to signal insights, noise has no links, opportunities are reviewed against strategic context"><rect x="0" y="0" width="624" height="92" rx="10" fill="#0B0B0C"/><text x="24" y="42" font-size="34" font-weight="800" fill="#FFFFFF">Strategic context</text><text x="24" y="76" font-size="26" font-weight="400" fill="#C9C9CE">What you are trying to achieve</text><path d="M262 464L305 359" stroke="#2563EB" stroke-width="3" fill="none"/><path d="M305 464L305 359" stroke="#2563EB" stroke-width="3" fill="none"/><path d="M348 464L305 359" stroke="#2563EB" stroke-width="3" fill="none"/><path d="M391 464L434 359" stroke="#2563EB" stroke-width="3" fill="none"/><path d="M434 464L434 359" stroke="#2563EB" stroke-width="3" fill="none"/><path d="M477 464L434 359" stroke="#2563EB" stroke-width="3" fill="none"/><path d="M520 464L563 359" stroke="#2563EB" stroke-width="3" fill="none"/><path d="M563 464L563 359" stroke="#2563EB" stroke-width="3" fill="none"/><path d="M606 464L563 359" stroke="#2563EB" stroke-width="3" fill="none"/><path d="M305 311L305 219M563 311L563 219" stroke="#0B0B0C" stroke-width="4" fill="none"/><rect x="270" y="295" width="336" height="80" rx="40" fill="none" stroke="#2563EB" stroke-width="4" stroke-dasharray="12 9"/><path d="M606 335H614V112" stroke="#2563EB" stroke-width="4" stroke-dasharray="12 9" fill="none"/><path d="M604 118L614 98L624 118Z" fill="#2563EB"/><text x="434" y="285" font-size="26" font-weight="400" fill="#2563EB" text-anchor="middle" class="sf">reviewed against</text><circle cx="305" cy="335" r="24" fill="#2563EB"/><circle cx="434" cy="335" r="24" fill="#2563EB"/><circle cx="563" cy="335" r="24" fill="#2563EB"/><rect x="281" y="171" width="48" height="48" rx="8" fill="#0B0B0C"/><rect x="539" y="171" width="48" height="48" rx="8" fill="#0B0B0C"/><circle cx="262" cy="475" r="11" fill="#2563EB"/><circle cx="305" cy="475" r="11" fill="#2563EB"/><circle cx="348" cy="475" r="11" fill="#2563EB"/><circle cx="391" cy="475" r="11" fill="#2563EB"/><circle cx="434" cy="475" r="11" fill="#2563EB"/><circle cx="477" cy="475" r="11" fill="#2563EB"/><circle cx="520" cy="475" r="11" fill="#2563EB"/><circle cx="563" cy="475" r="11" fill="#2563EB"/><circle cx="606" cy="475" r="11" fill="#2563EB"/><circle cx="270" cy="600" r="8" fill="#9A9AA0"/><circle cx="320" cy="620" r="8" fill="#9A9AA0"/><circle cx="385" cy="598" r="8" fill="#9A9AA0"/><circle cx="440" cy="622" r="8" fill="#9A9AA0"/><circle cx="500" cy="600" r="8" fill="#9A9AA0"/><circle cx="555" cy="620" r="8" fill="#9A9AA0"/><circle cx="600" cy="604" r="8" fill="#9A9AA0"/><text x="0" y="165" font-size="34" font-weight="800" fill="#0B0B0C">Bets</text><text x="0" y="197" font-size="25" font-weight="400" fill="#5F5F65">A commitment</text><text x="0" y="227" font-size="25" font-weight="400" fill="#5F5F65">with an owner</text><text x="0" y="305" font-size="34" font-weight="800" fill="#0B0B0C">Opportunities</text><text x="0" y="337" font-size="25" font-weight="400" fill="#5F5F65">What is worth</text><text x="0" y="367" font-size="25" font-weight="400" fill="#5F5F65">solving, kept few</text><text x="0" y="445" font-size="34" font-weight="800" fill="#0B0B0C">Insights</text><text x="0" y="477" font-size="25" font-weight="400" fill="#5F5F65">Signal when</text><text x="0" y="507" font-size="25" font-weight="400" fill="#5F5F65">independent</text><text x="0" y="537" font-size="25" font-weight="400" fill="#5F5F65">sources agree</text><text x="0" y="580" font-size="34" font-weight="800" fill="#0B0B0C">Noise</text><text x="0" y="612" font-size="25" font-weight="400" fill="#5F5F65">One-off or</text><text x="0" y="642" font-size="25" font-weight="400" fill="#5F5F65">unsourced</text></svg></div>
+  <p class="strip"><span class="pill fill">Ours, how we run it</span><span>We run this graph in <span class="em">Maskin.</span> You could use Notion or a similar tool.</span></p>
+</section>
+
+
+<section class="slide s6 dark" id="s7">
+  <div class="pill fill">Ours, how we run it</div>
+  <h1>Live in <span class="em">Maskin.</span></h1>
+  <div class="three">
+    <div><span>Example 1</span>The evidence behind an insight</div>
+    <div><span>Example 2</span>An opportunity from the ranked list</div>
+    <div><span>Example 3</span>A bet with an owner and a close condition</div>
+  </div>
+  <p class="cue">ALT+TAB TO MASKIN</p>
+</section>
+
+<section class="slide s7" id="s8">
+  <h2>Where a <span class="em">human</span> decides.</h2>
+  <div class="two">
+    <div class="panel proj"><p class="eyebrow">Our loop does</p><ul><li>Reads the sources we connect</li><li>Files each insight with its source</li><li>Groups what independent sources agree on</li><li>Ranks the opportunities</li></ul></div>
+    <div class="panel loop"><p class="eyebrow">You decide</p><ul><li>Which opportunity to take</li><li>When the evidence is enough</li><li>What to build</li><li>Whether it worked</li></ul></div>
+  </div>
+  <div class="foot"><p class="ruletxt">Staged, not decided. We do not automate the call.</p></div>
+</section>
+
+<section class="slide s8" id="s9">
+  <h2>Your questions.</h2>
+  <p class="ask">Bring the one thing about your users you cannot answer.</p>
+  <p class="eyebrow small foot9">Presented by Sebastian Krumhausen. Chat is open.</p>
+</section>
+
+<section class="slide s8 s10" id="s10">
+  <h2>Book a <span class="em">free hour.</span></h2>
+  <p class="ask">We set up your first loop with you, live.</p>
+  <div class="cta">Book your free onboarding: <span class="em">maskin.io/bookseb</span></div>
+</section>
+
+<section class="slide s11" id="s11">
+  <h2>Watch the <span class="em">recording.</span></h2>
+  <div class="vid"><iframe src="https://www.youtube-nocookie.com/embed/RTPxYB0vpJk" title="Run product discovery as a loop, webinar recording, 18:10" allow="accelerometer; encrypted-media; picture-in-picture; fullscreen" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+</section>
+
+</div>
+<div class="tap l" id="pl"></div><div class="tap r" id="pr"></div>
+<div class="ctr" id="ctr">1 / 11</div>
+<div class="notes" id="notes"></div>
+<script>
+(function(){
+  var stage=document.getElementById('stage'), slides=[].slice.call(document.querySelectorAll('.slide')), i=0, ctr=document.getElementById('ctr'), notes=document.getElementById('notes'), root=document.documentElement;
+  function fit(){
+    var portrait=innerWidth/innerHeight<1, compact=!portrait&&innerWidth<1000;
+    var W=portrait?720:compact?1280:1920, H=portrait?1280:compact?720:1080;
+    stage.style.width=W+'px'; stage.style.height=H+'px';
+    root.classList.toggle('portrait',portrait); root.classList.toggle('compact',compact);
+    var s=Math.min(innerWidth/W,innerHeight/H);
+    stage.style.transform='translate('+((innerWidth-W*s)/2)+'px,'+((innerHeight-H*s)/2)+'px) scale('+s+')';
+  }
+  function show(n){
+    i=Math.max(0,Math.min(slides.length-1,n));
+    slides.forEach(function(s,k){s.classList.toggle('on',k===i)});
+    ctr.textContent=(i+1)+' / '+slides.length;
+    notes.textContent=slides[i].getAttribute('data-notes')||'';
+    root.classList.toggle('darkslide',slides[i].classList.contains('dark'));
+  }
+  addEventListener('resize',fit); fit(); show(0);
+  addEventListener('keydown',function(e){
+    var k=e.key;
+    if(k==='ArrowRight'||k===' '||k==='PageDown')show(i+1);
+    else if(k==='ArrowLeft'||k==='PageUp')show(i-1);
+    else if(k==='Home')show(0); else if(k==='End')show(slides.length-1);
+    else if(k==='n'||k==='N')notes.classList.toggle('on');
+    else if(k==='.')ctr.style.display=ctr.style.display==='none'?'':'none';
+    else if(k==='f'||k==='F'){try{document.fullscreenElement?document.exitFullscreen():root.requestFullscreen()}catch(x){}}
+  });
+  document.getElementById('pl').addEventListener('click',function(){show(i-1)});
+  document.getElementById('pr').addEventListener('click',function(){show(i+1)});
+  var x0=null;
+  addEventListener('touchstart',function(e){x0=e.touches[0].clientX},{passive:true});
+  addEventListener('touchend',function(e){if(x0===null)return;var dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>50)show(i+(dx<0?1:-1));x0=null},{passive:true});
+})();
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
