@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="utf-8">
+<title>25. nov webinar: Lad din AI-bogholder gøre regnskabet klar: bilag, moms, årsrapport</title>
+<meta name="description" content="Dansk webinardeck til ejere af virksomheder, onsdag 25. november kl. 15.00. Throughline: agenten gør klar, du eller din bogholder godkender, og ansvaret er dit. 12 slides: forarbejdet, sådan bruger vi en agent, startpakken, platformsoverblik, live-demo med bilag, moms og årsrapport, spørgsmål.">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>
+:root{
+  --bg:#0B0C10; --ink:#ECEAE4; --mute:#A09A93; --rule:#34332E; --gold:#D7B360; --gold-d:#BF9242; --dark:#0B0C10;
+  --aurora:linear-gradient(90deg,#F29B4B,#5BD08A,#3FC5E8,#9A8CF2);
+  --f:"Schibsted Grotesk",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --m:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --pad:96px; --h1:128px; --h2:112px; --lead:44px; --body:36px; --small:26px; --gap:40px; --big:76px;
+  color-scheme:dark;
+}
+html.compact{--pad:56px; --h1:96px; --h2:72px; --lead:36px; --body:30px; --small:24px; --gap:24px; --big:56px}
+html.portrait{--pad:56px; --h1:84px; --h2:68px; --lead:36px; --body:32px; --small:26px; --gap:28px; --big:60px}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:var(--bg);color:var(--ink);font-family:var(--f);font-optical-sizing:auto;font-feature-settings:"kern";overflow:hidden;-webkit-text-size-adjust:100%}
+.stage{position:fixed;left:0;top:0;transform-origin:0 0;width:1920px;height:1080px;overflow:hidden;background-color:var(--bg);
+  background-image:linear-gradient(rgba(236,234,228,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(236,234,228,.035) 1px,transparent 1px);background-size:72px 72px}
+.slide{position:absolute;inset:0;overflow:hidden;isolation:isolate;padding:var(--pad);display:flex;flex-direction:column;justify-content:center;gap:var(--gap);opacity:0;visibility:hidden;transition:opacity .2s cubic-bezier(.4,0,1,1),visibility 0s .2s}
+.slide.on{opacity:1;visibility:visible;transition:opacity .45s cubic-bezier(.16,1,.3,1),visibility 0s}
+.slide.hasfoot{padding-bottom:calc(var(--pad) + 72px)}
+.rv{opacity:0;transform:translateY(16px)}
+.on .rv{opacity:1;transform:none;transition:opacity .5s cubic-bezier(.16,1,.3,1) calc(var(--i,0)*90ms + 120ms),transform .5s cubic-bezier(.16,1,.3,1) calc(var(--i,0)*90ms + 120ms)}
+h1,h2{font-weight:700;letter-spacing:-.022em;line-height:1.04}
+h1{font-size:var(--h1);max-width:1500px}
+h2{font-size:var(--h2);max-width:1600px}
+.lead{font-size:var(--lead);line-height:1.22;color:var(--ink);max-width:1400px;font-weight:500}
+.body{font-size:var(--body);line-height:1.3;color:var(--mute);max-width:1300px}
+.mono{font-family:var(--m);color:var(--gold);font-size:var(--small);letter-spacing:.01em}
+.mute{color:var(--mute)}
+.rule{width:96px;height:6px;background:var(--aurora);border-radius:3px}
+.ae{background:var(--aurora);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+.brand{font-weight:700;font-size:var(--lead);letter-spacing:-.01em;color:var(--gold)}
+.row{display:flex;justify-content:space-between;align-items:baseline;gap:var(--gap)}
+.cols{display:grid;grid-template-columns:repeat(var(--n,3),1fr);gap:var(--gap)}
+.col{border-top:2px solid var(--gold);padding-top:24px;display:flex;flex-direction:column;gap:14px}
+.col .big{font-size:var(--big);font-weight:700;letter-spacing:-.02em;line-height:1}
+.col p{font-size:var(--body);line-height:1.28;color:var(--mute)}
+.num{font-family:var(--m);color:var(--gold);font-size:var(--big);line-height:1;font-weight:500}
+.flow{display:flex;align-items:stretch;gap:20px}
+.node{flex:1;border:2px solid var(--gold);border-radius:8px;padding:32px;display:flex;flex-direction:column;gap:14px}
+.node.you{background:var(--gold);color:var(--dark);border-color:var(--gold)}
+.node .big{font-size:var(--lead);font-weight:700;line-height:1.1}
+.node p{font-size:var(--small);line-height:1.3;color:var(--mute)}
+.node.you p{color:#2a2418}
+.arrow{width:56px;flex:none;align-self:center;color:var(--gold)}
+.arrow svg{display:block;width:100%;height:auto}
+.kit{display:grid;grid-template-columns:repeat(4,1fr);gap:28px var(--gap)}
+.k{border-top:1px solid var(--rule);padding-top:18px;display:flex;flex-direction:column;gap:10px}
+.k .n{font-family:var(--m);color:var(--gold);font-size:var(--small)}
+.k .t{font-size:var(--body);font-weight:600;line-height:1.15}
+.skill{display:flex;gap:20px;align-items:baseline;border-left:4px solid var(--gold);padding-left:24px}
+ul.plain{list-style:none;display:flex;flex-direction:column;gap:18px}
+ul.plain li{font-size:var(--body);line-height:1.25;padding-left:36px;position:relative;color:var(--ink)}
+ul.plain li::before{content:"";position:absolute;left:0;top:.5em;width:14px;height:14px;border-radius:50%;background:var(--gold)}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap);align-items:center}
+.ph{border:3px dashed var(--gold-d);border-radius:8px;min-height:360px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:32px;text-align:center}
+.ph .tag{font-family:var(--m);font-size:var(--small);color:var(--gold)}
+.ph .t{font-size:var(--lead);font-weight:600;line-height:1.15}
+.ph .s{font-size:var(--small);color:var(--mute)}
+.foot{position:absolute;left:var(--pad);right:var(--pad);bottom:44px;font-size:var(--small);color:var(--mute);line-height:1.3}
+.foot::before{content:"";display:block;height:1px;background:var(--rule);margin-bottom:14px}
+.agenda{list-style:none;display:grid;grid-template-columns:repeat(5,1fr);gap:var(--gap)}
+.agenda li{border-top:2px solid var(--rule);padding-top:18px;font-size:var(--body);line-height:1.2;font-weight:600}
+.agenda li span{display:block;font-family:var(--m);font-weight:400;font-size:var(--small);color:var(--gold);margin-top:8px}
+.qa{font-size:calc(var(--h1)*1.25);font-weight:700;letter-spacing:-.03em;line-height:1}
+.chip{display:inline-block;font-family:var(--m);font-size:var(--small);color:var(--gold);border:1px solid var(--gold-d);border-radius:999px;padding:6px 18px;width:fit-content}
+
+.narrow{max-width:880px}
+html.portrait .narrow{max-width:none}
+.glyph{position:absolute;right:56px;bottom:24px;z-index:-1;font-size:820px;font-weight:800;line-height:.8;opacity:.3;pointer-events:none;user-select:none}
+html.compact .glyph{font-size:420px;right:24px;bottom:8px}
+html.portrait .glyph{font-size:560px;right:24px;bottom:-60px;opacity:.2}
+/* portrait + compact reflow */
+.portrait .cols,.portrait .kit,.portrait .agenda,.portrait .split{grid-template-columns:1fr}
+.portrait .flow{flex-direction:column}
+.portrait .arrow{width:44px;transform:rotate(90deg);align-self:center;margin:-4px 0}
+.portrait .node{padding:24px}
+.portrait .row{flex-direction:column;align-items:flex-start;gap:12px}
+.portrait .col{padding-top:16px;gap:8px}
+.portrait .k{flex-direction:row;align-items:baseline;gap:20px;padding:12px 0 10px}
+.portrait .k .n{min-width:36px}
+.portrait .agenda li{padding-top:12px}
+.portrait .agenda li span{display:inline;margin-left:14px}
+.portrait .ph{min-height:260px}
+.portrait .slide.hasfoot{padding-bottom:calc(var(--pad) + 96px)}
+.portrait .foot{bottom:calc(56px + env(safe-area-inset-bottom))}
+.foot{bottom:60px}
+.compact .kit{grid-template-columns:repeat(4,1fr);gap:14px 24px}
+.compact .slide.hasfoot{padding-bottom:132px}
+.compact .foot{bottom:64px}
+.compact .node{padding:20px}
+.compact .k .t{font-size:27px}
+.compact .node{padding:22px}
+.compact .arrow{width:36px}
+.compact .agenda{grid-template-columns:repeat(5,1fr);gap:20px}
+
+/* UI chrome (outside the canvas) */
+.ui{position:fixed;z-index:50;font-family:var(--m);font-size:14px;color:var(--mute)}
+#count{right:calc(16px + env(safe-area-inset-right));bottom:calc(10px + env(safe-area-inset-bottom));display:flex;align-items:center;gap:6px}
+#count button,#notebtn{font:inherit;color:var(--ink);background:rgba(11,12,16,.75);border:1px solid var(--rule);border-radius:6px;min-width:44px;min-height:44px;cursor:pointer}
+#notebtn{left:calc(16px + env(safe-area-inset-left));bottom:calc(10px + env(safe-area-inset-bottom));padding:0 14px}
+.zone{position:fixed;top:0;bottom:0;width:20%;min-width:44px;z-index:10;background:transparent;border:0;cursor:pointer}
+#zl{left:0}#zr{right:0}
+#bar{position:fixed;left:0;top:0;height:3px;background:var(--gold);z-index:30;transition:width .3s}
+#notes{position:fixed;left:0;right:0;bottom:0;z-index:40;max-height:48vh;overflow:auto;background:rgba(11,12,16,.97);border-top:2px solid var(--gold);padding:16px 24px 76px;font-size:18px;line-height:1.45;color:var(--ink);white-space:pre-wrap;display:none}
+#notes.show{display:block}
+#notes b{color:var(--gold);font-family:var(--m);font-weight:500;display:block;margin-bottom:6px}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+@media print{
+  html,body{overflow:visible;height:auto}
+  .stage{position:static;transform:none!important;width:1920px;height:auto}
+  .slide{position:relative;opacity:1;visibility:visible;height:1080px;break-after:page}
+  .rv{opacity:1;transform:none}
+  .ui,.zone,#bar,#notes{display:none!important}
+}
+/* platform overview slide */
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.plat-s{--pad:72px;gap:10px;justify-content:flex-start;padding-top:36px;padding-bottom:calc(34px + 118px)}
+.plat-s h2{font-size:50px;max-width:none;letter-spacing:-.02em}
+.toprow{display:flex;justify-content:space-between;align-items:center;gap:20px 40px;flex-wrap:wrap}
+.plat{width:100%;border-collapse:collapse;table-layout:fixed;font-size:var(--body)}
+.plat th,.plat td{padding:3px 6px;border-bottom:1px solid var(--rule);text-align:center;vertical-align:middle}
+.plat thead th{border-bottom:2px solid var(--gold);padding:0 6px 8px;vertical-align:bottom;font-weight:700;line-height:1.1}
+.plat tbody th{text-align:left;font-weight:500;color:var(--ink);padding-left:0;line-height:1.1}
+.plat thead th:first-child,.plat tbody th{width:460px}
+.cell{display:inline-flex;flex-direction:row;flex-wrap:wrap;justify-content:center;align-items:center;gap:0 10px;line-height:1.1;color:var(--ink)}
+.ct{color:var(--ink);white-space:nowrap}
+.fn,.fnl{display:none}
+.ic{width:38px;height:38px;flex:none;display:inline-block}
+.ic.y{color:#5BD08A}.ic.p{color:var(--gold)}.ic.n{color:#F29B4B}.ic.u{color:var(--mute)}
+.key{list-style:none;display:flex;flex-wrap:wrap;gap:6px 30px;font-size:var(--small);color:var(--mute)}
+.key li{display:flex;align-items:center;gap:8px}
+.key .ic{width:28px;height:28px}
+.two{display:flex;flex-direction:column;gap:4px}
+.two p{font-size:var(--body);line-height:1.2;color:var(--ink)}
+.plat-s .foot{font-size:24px;bottom:34px}
+html.compact .plat-s{--pad:48px;gap:6px;padding-top:18px;padding-bottom:calc(16px + 132px)}
+html.compact .plat-s h2{font-size:38px}
+html.compact .plat{font-size:24px}
+html.compact .plat th,html.compact .plat td{padding:1px 2px}
+html.compact .plat thead th:first-child,html.compact .plat tbody th{width:330px}
+html.compact .ic{width:26px;height:26px}
+html.compact .cell{gap:0 6px}
+html.compact .key{font-size:24px;gap:2px 20px}
+html.compact .key .ic{width:22px;height:22px}
+html.compact .two{gap:2px}
+html.compact .two p{font-size:24px;line-height:1.2}
+html.compact .plat-s .foot{font-size:24px;bottom:16px;line-height:1.22}
+html.compact .plat-s .foot::before{margin-bottom:6px}
+html.portrait .plat-s{--pad:40px;gap:6px;padding-top:16px;padding-bottom:calc(20px + 215px)}
+html.portrait .plat-s h2{font-size:38px}
+html.portrait .plat{font-size:24px}
+html.portrait .plat th,html.portrait .plat td{padding:0 2px}
+html.portrait .plat thead th:first-child,html.portrait .plat tbody th{width:296px}
+html.portrait .plat tbody th{font-size:24px}
+html.portrait .hd{writing-mode:vertical-rl;transform:rotate(180deg);white-space:nowrap;display:inline-block;font-size:24px}
+html.portrait .ct{display:none}
+html.portrait .fn{display:inline;font-size:24px;vertical-align:top;color:var(--gold);margin-left:0;line-height:1}
+html.portrait .cell{flex-wrap:nowrap;align-items:flex-start;gap:0}
+html.portrait .ic{width:32px;height:32px}
+html.portrait .fnl{display:flex;gap:2px 20px;flex-wrap:wrap;font-size:24px;color:var(--mute)}
+html.portrait .fnl sup{color:var(--gold);font-size:24px}
+html.portrait .key{font-size:24px;gap:4px 18px}
+html.portrait .key .ic{width:24px;height:24px}
+html.portrait .two{gap:6px}
+html.portrait .two p{font-size:24px}
+html.portrait .plat-s .foot{font-size:24px;line-height:1.25;bottom:calc(24px + env(safe-area-inset-bottom))}
+html.portrait .plat-s .foot::before{margin-bottom:8px}
+
+</style>
+</head>
+<body>
+<div class="stage" id="stage">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="ic-y" viewBox="0 0 40 40"><circle cx="20" cy="20" r="17" fill="none" stroke="currentColor" stroke-width="3.5"/><path d="M11.5 20.5l6 6 11.5-12.5" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="ic-p" viewBox="0 0 40 40"><circle cx="20" cy="20" r="17" fill="none" stroke="currentColor" stroke-width="3.5"/><path d="M20 3a17 17 0 0 1 0 34z" fill="currentColor"/></symbol>
+<symbol id="ic-n" viewBox="0 0 40 40"><circle cx="20" cy="20" r="17" fill="none" stroke="currentColor" stroke-width="3.5"/><path d="M13.5 13.5l13 13M26.5 13.5l-13 13" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round"/></symbol>
+<symbol id="ic-u" viewBox="0 0 40 40"><circle cx="20" cy="20" r="17" fill="none" stroke="currentColor" stroke-width="3.5" stroke-dasharray="5 4"/><path d="M15 15.5a5 5 0 1 1 7.5 4.3c-1.6.9-2.5 1.8-2.5 3.7" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="20" cy="29.5" r="2.4" fill="currentColor"/></symbol>
+</defs></svg>
+
+<section class="slide" id="s1">
+  <div class="glyph ae" aria-hidden="true">æ</div>
+  <div class="row rv" style="--i:0"><div class="brand">AI V<span class="ae">æ</span>rksted</div><div class="mono">Webinar · onsdag 25. november · kl. 15.00 til 16.00</div></div>
+  <div class="rule rv" style="--i:1"></div>
+  <h1 class="rv" style="--i:2">Lad din AI-bogholder gøre regnskabet klar</h1>
+  <p class="lead rv narrow" style="--i:3">Bilag, moms, årsrapport. Årsafslutning med en AI-agent.</p>
+  <p class="body rv" style="--i:4">Sebastian Krumhausen, Maskin</p>
+</section>
+
+<section class="slide" id="s2">
+  <h2 class="rv" style="--i:0">Agenten foreslår. Du eller din bogholder godkender.</h2>
+  <ul class="agenda">
+    <li class="rv" style="--i:1">Forarbejdet</li>
+    <li class="rv" style="--i:2">Sådan bruger vi en agent</li>
+    <li class="rv" style="--i:3">Startpakken</li>
+    <li class="rv" style="--i:4">Live: bilag, moms, årsrapport</li>
+    <li class="rv" style="--i:5">Spørgsmål</li>
+  </ul>
+  <p class="body rv" style="--i:6">Ansvaret for regnskabet, momsen og årsrapporten er stadig dit.</p>
+</section>
+
+<section class="slide" id="s3">
+  <h2 class="rv" style="--i:0">Maskin: AI-agenter forbereder. Mennesker godkender.</h2>
+  <div class="rule rv" style="--i:1"></div>
+  <p class="lead rv" style="--i:2">Sebastian Krumhausen, cofounder af Maskin</p>
+  <p class="body rv" style="--i:3">Har arbejdet med LEGO og momondo</p>
+</section>
+
+<section class="slide" id="s4">
+  <p class="mono rv" style="--i:0">Del 1</p>
+  <h2 class="rv" style="--i:1">Det tunge er forarbejdet</h2>
+  <div class="cols" style="--n:3">
+    <div class="col rv" style="--i:2"><div class="big">Bilag</div><p>Hvilket bilag hører til hvilken bankpost?</p></div>
+    <div class="col rv" style="--i:3"><div class="big">Moms</div><p>Stemmer momsen med bilagene?</p></div>
+    <div class="col rv" style="--i:4"><div class="big">Årsrapport</div><p>Er tallene klar til årsrapporten?</p></div>
+  </div>
+</section>
+
+<section class="slide hasfoot" id="s5">
+  <p class="mono rv" style="--i:0">Del 2</p>
+  <h2 class="rv" style="--i:1">Sådan bruger vi selv en agent</h2>
+  <div class="flow rv" style="--i:2">
+    <div class="node"><div class="big">Agenten læser</div><p>Læseadgang, som startpakken siger</p></div>
+    <div class="arrow"><svg viewBox="0 0 56 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h50M42 3l10 9-10 9"/></svg></div>
+    <div class="node"><div class="big">Agenten foreslår</div><p>Hvert forslag peger på sin kilde</p></div>
+    <div class="arrow"><svg viewBox="0 0 56 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h50M42 3l10 9-10 9"/></svg></div>
+    <div class="node you"><div class="big">Et menneske godkender</div><p>Dig eller din bogholder</p></div>
+  </div>
+  <p class="body rv" style="--i:3">Reglen i startpakken: agenten bogfører ikke og ændrer ikke i regnskabsprogrammet.</p>
+  <div class="foot">Agenten erstatter ikke din bogholder eller revisor. Ingen skatte- eller juridisk rådgivning.</div>
+</section>
+
+<section class="slide hasfoot" id="s6">
+  <p class="mono rv" style="--i:0">Del 3</p>
+  <h2 class="rv" style="--i:1">Startpakken: én skill og otte opgaver</h2>
+  <div class="skill rv" style="--i:2"><div class="body" style="color:var(--ink)">Skill: faste instruktioner til din AI-assistent</div></div>
+  <div class="kit">
+    <div class="k rv" style="--i:3"><span class="n">1</span><span class="t">Bilag, bank og fejl</span></div>
+    <div class="k rv" style="--i:3"><span class="n">2</span><span class="t">Stemmer banken?</span></div>
+    <div class="k rv" style="--i:4"><span class="n">3</span><span class="t">Kunder der ikke har betalt</span></div>
+    <div class="k rv" style="--i:4"><span class="n">4</span><span class="t">Leverandører og periodisering</span></div>
+    <div class="k rv" style="--i:5"><span class="n">5</span><span class="t">Moms</span></div>
+    <div class="k rv" style="--i:5"><span class="n">6</span><span class="t">Anlægskøb</span></div>
+    <div class="k rv" style="--i:6"><span class="n">7</span><span class="t">Privat forbrug og hævninger</span></div>
+    <div class="k rv" style="--i:6"><span class="n">8</span><span class="t">Spørgsmål til bogholderen</span></div>
+  </div>
+  <div class="foot">Agenten erstatter ikke din bogholder eller revisor. Ingen skatte- eller juridisk rådgivning.</div>
+</section>
+
+<section class="slide hasfoot" id="s7">
+  <p class="mono rv" style="--i:0">Del 3</p>
+  <h2 class="rv" style="--i:1">Reglerne er din bogholders. Ansvaret er dit.</h2>
+  <ul class="plain">
+    <li class="rv" style="--i:2">Ingen satser, grænser eller frister i pakken</li>
+    <li class="rv" style="--i:3">Agenten samler spørgsmålene til din bogholder</li>
+    <li class="rv" style="--i:4">Ansvaret for regnskabet, momsen og årsrapporten er stadig dit</li>
+  </ul>
+  <div class="foot">Agenten erstatter ikke din bogholder eller revisor. Ingen skatte- eller juridisk rådgivning.</div>
+</section>
+
+<section class="slide hasfoot plat-s" id="s8">
+  <div class="toprow rv" style="--i:0"><p class="mono">Overblik</p><ul class="key"><li><svg class="ic y" viewBox="0 0 40 40" role="img" aria-label="ja"><use href="#ic-y"/></svg><span>ja</span></li><li><svg class="ic p" viewBox="0 0 40 40" role="img" aria-label="ja, med forbehold"><use href="#ic-p"/></svg><span>ja, med forbehold</span></li><li><svg class="ic n" viewBox="0 0 40 40" role="img" aria-label="ingen vej fundet"><use href="#ic-n"/></svg><span>ingen vej fundet</span></li><li><svg class="ic u" viewBox="0 0 40 40" role="img" aria-label="ikke bekræftet"><use href="#ic-u"/></svg><span>ikke bekræftet</span></li></ul></div>
+  <h2 class="rv" style="--i:1">Hvor langt kan en agent gå i dit regnskabsprogram?</h2>
+  <table class="plat rv" style="--i:2"><thead><tr><th scope="col"><span class="sr">Opgave</span></th><th scope="col"><span class="hd">Dinero</span></th><th scope="col"><span class="hd">e-conomic</span></th><th scope="col"><span class="hd">Billy</span></th><th scope="col"><span class="hd">Numina</span></th><th scope="col"><span class="hd">Business Central</span></th></tr></thead><tbody>
+<tr><th scope="row">Læse regnskabet</th><td><span class="cell"><svg class="ic y" viewBox="0 0 40 40" role="img" aria-label="ja"><use href="#ic-y"/></svg></span></td><td><span class="cell"><svg class="ic p" viewBox="0 0 40 40" role="img" aria-label="ja, med forbehold"><use href="#ic-p"/></svg></span></td><td><span class="cell"><svg class="ic u" viewBox="0 0 40 40" role="img" aria-label="ikke bekræftet"><use href="#ic-u"/></svg></span></td><td><span class="cell"><svg class="ic y" viewBox="0 0 40 40" role="img" aria-label="ja"><use href="#ic-y"/></svg></span></td><td><span class="cell"><svg class="ic y" viewBox="0 0 40 40" role="img" aria-label="ja"><use href="#ic-y"/></svg></span></td></tr>
+<tr><th scope="row">Lave kladde ud fra bilag</th><td><span class="cell"><svg class="ic y" viewBox="0 0 40 40" role="img" aria-label="ja"><use href="#ic-y"/></svg></span></td><td><span class="cell"><svg class="ic y" viewBox="0 0 40 40" role="img" aria-label="ja"><use href="#ic-y"/></svg></span></td><td><span class="cell"><svg class="ic y" viewBox="0 0 40 40" role="img" aria-label="ja"><use href="#ic-y"/></svg></span></td><td><span class="cell"><svg class="ic y" viewBox="0 0 40 40" role="img" aria-label="ja"><use href="#ic-y"/></svg></span></td><td><span class="cell"><svg class="ic y" viewBox="0 0 40 40" role="img" aria-label="ja"><use href="#ic-y"/></svg></span></td></tr>
+<tr><th scope="row">Bogføre</th><td><span class="cell"><svg class="ic y" viewBox="0 0 40 40" role="img" aria-label="ja"><use href="#ic-y"/></svg></span></td><td><span class="cell"><svg class="ic y" viewBox="0 0 40 40" role="img" aria-label="ja"><use href="#ic-y"/></svg></span></td><td><span class="cell"><svg class="ic y" viewBox="0 0 40 40" role="img" aria-label="ja"><use href="#ic-y"/></svg></span></td><td><span class="cell"><svg class="ic p" viewBox="0 0 40 40" role="img" aria-label="ja, med forbehold"><use href="#ic-p"/></svg><span class="ct">kun via API</span><sup class="fn">1</sup></span></td><td><span class="cell"><svg class="ic p" viewBox="0 0 40 40" role="img" aria-label="ja, med forbehold"><use href="#ic-p"/></svg><span class="ct">kræver admin</span><sup class="fn">2</sup></span></td></tr>
+<tr><th scope="row">Afstemme en bankpost</th><td><span class="cell"><svg class="ic n" viewBox="0 0 40 40" role="img" aria-label="ingen vej fundet"><use href="#ic-n"/></svg></span></td><td><span class="cell"><svg class="ic u" viewBox="0 0 40 40" role="img" aria-label="ikke bekræftet"><use href="#ic-u"/></svg></span></td><td><span class="cell"><svg class="ic y" viewBox="0 0 40 40" role="img" aria-label="ja"><use href="#ic-y"/></svg></span></td><td><span class="cell"><svg class="ic p" viewBox="0 0 40 40" role="img" aria-label="ja, med forbehold"><use href="#ic-p"/></svg><span class="ct">kun kladde</span><sup class="fn">3</sup></span></td><td><span class="cell"><svg class="ic n" viewBox="0 0 40 40" role="img" aria-label="ingen vej fundet"><use href="#ic-n"/></svg></span></td></tr>
+<tr><th scope="row">Sende faktura</th><td><span class="cell"><svg class="ic y" viewBox="0 0 40 40" role="img" aria-label="ja"><use href="#ic-y"/></svg><span class="ct">via API</span><sup class="fn">4</sup></span></td><td><span class="cell"><svg class="ic y" viewBox="0 0 40 40" role="img" aria-label="ja"><use href="#ic-y"/></svg></span></td><td><span class="cell"><svg class="ic y" viewBox="0 0 40 40" role="img" aria-label="ja"><use href="#ic-y"/></svg></span></td><td><span class="cell"><svg class="ic p" viewBox="0 0 40 40" role="img" aria-label="ja, med forbehold"><use href="#ic-p"/></svg><span class="ct">kun via API</span><sup class="fn">1</sup></span></td><td><span class="cell"><svg class="ic y" viewBox="0 0 40 40" role="img" aria-label="ja"><use href="#ic-y"/></svg></span></td></tr>
+<tr><th scope="row">Sende rykkere</th><td><span class="cell"><svg class="ic y" viewBox="0 0 40 40" role="img" aria-label="ja"><use href="#ic-y"/></svg><span class="ct">via API</span><sup class="fn">4</sup></span></td><td><span class="cell"><svg class="ic u" viewBox="0 0 40 40" role="img" aria-label="ikke bekræftet"><use href="#ic-u"/></svg></span></td><td><span class="cell"><svg class="ic u" viewBox="0 0 40 40" role="img" aria-label="ikke bekræftet"><use href="#ic-u"/></svg></span></td><td><span class="cell"><svg class="ic u" viewBox="0 0 40 40" role="img" aria-label="ikke bekræftet"><use href="#ic-u"/></svg></span></td><td><span class="cell"><svg class="ic n" viewBox="0 0 40 40" role="img" aria-label="ingen vej fundet"><use href="#ic-n"/></svg></span></td></tr>
+<tr><th scope="row">Agenten indberetter momsen</th><td><span class="cell"><svg class="ic n" viewBox="0 0 40 40" role="img" aria-label="ingen vej fundet"><use href="#ic-n"/></svg></span></td><td><span class="cell"><svg class="ic u" viewBox="0 0 40 40" role="img" aria-label="ikke bekræftet"><use href="#ic-u"/></svg></span></td><td><span class="cell"><svg class="ic n" viewBox="0 0 40 40" role="img" aria-label="ingen vej fundet"><use href="#ic-n"/></svg></span></td><td><span class="cell"><svg class="ic n" viewBox="0 0 40 40" role="img" aria-label="ingen vej fundet"><use href="#ic-n"/></svg></span></td><td><span class="cell"><svg class="ic n" viewBox="0 0 40 40" role="img" aria-label="ingen vej fundet"><use href="#ic-n"/></svg></span></td></tr>
+</tbody></table>
+  <p class="fnl"><span><sup>1</sup> kun via API</span> <span><sup>2</sup> kræver admin</span> <span><sup>3</sup> kun kladde</span> <span><sup>4</sup> via API</span></p>
+  <div class="two rv" style="--i:4"><p>Bogføring er der, hvor programmerne skiller sig. Det viser, hvad programmerne tillader, ikke hvad vi anbefaler.</p><p>Vi fandt ingen, der lader en agent indberette momsen. Kun Billy og Numina har en vej til at afstemme bankposter, hos Numina kun som kladde.</p></div>
+  <div class="foot">Fra leverandørernes egen dokumentation, læst 23. nov. 2026. Ikke testet. ✖ betyder, at vi ikke fandt en vej, ikke at den ikke findes. Det er ikke en anbefaling af at lade en agent bogføre: du eller din bogholder godkender, og ansvaret er dit. Agenten erstatter ikke din bogholder eller revisor. Ingen skatte- eller juridisk rådgivning.</div>
+</section>
+
+<section class="slide hasfoot" id="s9">
+  <p class="mono rv" style="--i:0">Live</p>
+  <h2 class="rv" style="--i:1">Nu sætter vi en agent op</h2>
+  <div class="cols" style="--n:4">
+    <div class="col rv" style="--i:2"><div class="num">1</div><p style="color:var(--ink)">Forbind regnskabsprogram og indbakke</p></div>
+    <div class="col rv" style="--i:3"><div class="num">2</div><p style="color:var(--ink)">Vælg opgaverne: bilag, moms, årsrapport</p></div>
+    <div class="col rv" style="--i:4"><div class="num">3</div><p style="color:var(--ink)">Kør første runde</p></div>
+    <div class="col rv" style="--i:5"><div class="num">4</div><p style="color:var(--ink)">Godkend forslagene</p></div>
+  </div>
+  <p class="body rv" style="--i:6">Demovirksomhed i Dinero. Du er selv ansvarlig for dit regnskab.</p>
+  <div class="foot">Agenten erstatter ikke din bogholder eller revisor. Ingen skatte- eller juridisk rådgivning.</div>
+</section>
+
+<section class="slide hasfoot" id="s10">
+  <p class="mono rv" style="--i:0">Live</p>
+  <h2 class="rv" style="--i:1">Det får du tilbage: tre lister</h2>
+  <div>
+    <ul class="plain">
+      <li class="rv" style="--i:2">Det der ser rigtigt ud</li>
+      <li class="rv" style="--i:3">Det der afviger</li>
+      <li class="rv" style="--i:4">Det der mangler</li>
+    </ul>
+  </div>
+  <div class="foot">Agenten erstatter ikke din bogholder eller revisor. Ingen skatte- eller juridisk rådgivning.</div>
+</section>
+
+<section class="slide" id="s12">
+  <div class="glyph ae" aria-hidden="true">æ</div>
+  <div class="qa rv" style="--i:0">Spørg løs</div>
+  <p class="lead rv narrow" style="--i:1">Skriv i chatten, eller svar på mailen bagefter.</p>
+  <p class="body rv" style="--i:2">Agenten foreslår. Du eller din bogholder godkender.</p>
+</section>
+
+<section class="slide" id="s13">
+  <h2 class="rv" style="--i:0">Næste skridt</h2>
+  <ul class="plain">
+    <li class="rv" style="--i:1">Alle tilmeldte får startpakken på mail</li>
+    <li class="rv" style="--i:2">Optagelse og slides deles efter webinaret</li>
+    <li class="rv" style="--i:3">Vil du have en gratis opfølgning på 60 minutter med Sebastian? Svar på mailen med startpakken.</li>
+  </ul>
+</section>
+
+</div>
+
+<button class="zone" id="zl" aria-label="Forrige slide"></button>
+<button class="zone" id="zr" aria-label="Næste slide"></button>
+<div class="ui" id="count"><button id="pv" aria-label="Forrige">&lt;</button><span id="ctr">1 / 12</span><button id="nx" aria-label="Næste">&gt;</button></div>
+<div id="bar"></div>
+
+<script>
+(function(){
+  var stage=document.getElementById('stage'), de=document.documentElement;
+  var all=[].slice.call(document.querySelectorAll('.slide'));
+  var early=/[?&]early/.test(location.search);
+  var list=all.filter(function(s){return early||!s.hasAttribute('data-skip')});
+  var cur=0, W=1920, H=1080;
+  function fit(){
+    var iw=window.innerWidth, ih=window.innerHeight;
+    var portrait=iw/ih<1, compact=!portrait&&iw<1000;
+    W=portrait?720:compact?1280:1920; H=portrait?1280:compact?720:1080;
+    stage.style.width=W+'px'; stage.style.height=H+'px';
+    de.classList.toggle('portrait',portrait); de.classList.toggle('compact',compact);
+    var CH=56, ah=ih-CH, s=Math.min(iw/W,ah/H);
+    stage.style.transform='translate('+((iw-W*s)/2)+'px,'+((ah-H*s)/2)+'px) scale('+s+')';
+    de.style.setProperty('--scale',s);
+  }
+  function show(i){
+    cur=Math.max(0,Math.min(list.length-1,i));
+    all.forEach(function(s){s.classList.remove('on')});
+    list[cur].classList.add('on');
+    document.getElementById('ctr').textContent=(cur+1)+' / '+list.length;
+    document.getElementById('bar').style.width=((cur+1)/list.length*100)+'%';
+  }
+  function next(){show(cur+1)} function prev(){show(cur-1)}
+  document.getElementById('zr').onclick=next; document.getElementById('zl').onclick=prev;
+  document.getElementById('nx').onclick=next; document.getElementById('pv').onclick=prev;
+  addEventListener('keydown',function(e){
+    var k=e.key;
+    if(k==='ArrowRight'||k===' '||k==='PageDown'){e.preventDefault();next()}
+    else if(k==='ArrowLeft'||k==='PageUp'){e.preventDefault();prev()}
+    else if(k==='Home'){show(0)} else if(k==='End'){show(list.length-1)}
+    else if(k==='f'||k==='F'){try{if(document.fullscreenElement){document.exitFullscreen()}else{de.requestFullscreen()}}catch(x){}}
+  });
+  var sx=null;
+  addEventListener('touchstart',function(e){sx=e.touches[0].clientX},{passive:true});
+  addEventListener('touchend',function(e){
+    if(sx===null)return; var dx=e.changedTouches[0].clientX-sx; sx=null;
+    if(Math.abs(dx)>50){dx<0?next():prev()}
+  },{passive:true});
+  addEventListener('resize',fit);
+  fit(); show(0);
+})();
+</script>
+</body>
+</html>
+
+
+
+
+
+
