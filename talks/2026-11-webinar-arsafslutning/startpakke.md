@@ -8,7 +8,7 @@ Pakken dækker ikke årsrapporten, indberetninger eller lagertælling. Den indeh
 
 ## Før du går i gang
 
-1. Du skal bruge en AI-assistent, hvor du kan lægge faste instruktioner ind og uploade filer, fx ChatGPT eller Claude. Har du ingen endnu, så opret en gratis konto hos en af dem. Kan din assistent ikke gemme faste instruktioner, så indsæt skill'en nedenfor som første besked i en ny samtale.
+1. Du skal bruge en AI-assistent, hvor du kan lægge faste instruktioner ind og uploade filer. Kan din assistent ikke gemme faste instruktioner, så indsæt skill'en nedenfor som første besked i en ny samtale.
 2. Giv kun læseadgang, helst eksportfiler i stedet for login. Det kan være eksport fra dit regnskabsprogram (fx Dinero, e-conomic, Billy), bankudtog og din bilagsmappe. Agenten foreslår kun. Du eller din bogholder beslutter.
 3. Tjek, hvor din AI-assistent gemmer data, før du uploader. Send ikke lønsedler eller CPR-numre, og fjern dem fra bankudtog og bilag, hvis de står der.
 4. Fortæl agenten fem ting først: virksomhedsform (fx enkeltmandsvirksomhed, I/S, ApS), regnskabsår, balancedato, momsperiode (måned, kvartal eller halvår) og regnskabsprogram. Uden dem gætter agenten.
