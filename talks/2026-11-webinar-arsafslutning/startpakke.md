@@ -2,14 +2,14 @@
 
 Pakken hører til webinaret om din AI-bogholder den 25. nov. kl. 15. Den giver dig det, en AI-agent skal bruge for at gøre forarbejdet til årsafslutningen: en skill (faste instruktioner) og otte prompts, én pr. opgave.
 
-Agenten gør forarbejdet. Du eller din bogholder gennemgår og godkender. Pakken erstatter ikke din bogholder eller revisor og giver ikke juridisk eller skattemæssig rådgivning.
+Pakken gør forarbejdet til årsafslutningen i din egen AI-assistent. Den giver ikke juridisk eller skattemæssig rådgivning.
 
 Pakken dækker ikke årsrapporten, indberetninger eller lagertælling. Den indeholder heller ingen satser, grænser eller frister. Dem skal din bogholder give dig for det aktuelle år.
 
 ## Før du går i gang
 
 1. Du skal bruge en AI-assistent, hvor du kan lægge faste instruktioner ind og uploade filer. Kan din assistent ikke gemme faste instruktioner, så indsæt skill'en nedenfor som første besked i en ny samtale.
-2. Giv kun læseadgang, helst eksportfiler i stedet for login. Det kan være eksport fra dit regnskabsprogram (fx Dinero, e-conomic, Billy), bankudtog og din bilagsmappe. Agenten foreslår kun. Du eller din bogholder beslutter.
+2. Giv kun læseadgang, helst eksportfiler i stedet for login. Det kan være eksport fra dit regnskabsprogram (fx Dinero, e-conomic, Billy), bankudtog og din bilagsmappe. Så ændrer assistenten ikke noget i dit regnskab.
 3. Tjek, hvor din AI-assistent gemmer data, før du uploader. Send ikke lønsedler eller CPR-numre, og fjern dem fra bankudtog og bilag, hvis de står der.
 4. Fortæl agenten fem ting først: virksomhedsform (fx enkeltmandsvirksomhed, I/S, ApS), regnskabsår, balancedato, momsperiode (måned, kvartal eller halvår) og regnskabsprogram. Uden dem gætter agenten.
 5. Kør én prompt ad gangen. Læs resultatet, før du går videre.
@@ -69,4 +69,3 @@ Instruktioner til agenten:
 ## Det her skal din bogholder selv tage stilling til
 
 Løn, feriepenge, skyldig A-skat og AM-bidrag, lagertælling og selve årsrapporten ligger uden for pakken. Tag dem med til din bogholder.
-
